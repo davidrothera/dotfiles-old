@@ -21,12 +21,14 @@ call plug#begin()
   Plug 'Yggdroot/indentLine'
 call plug#end()
 
-" Settings for syntastic c++ support
-let g:syntastic_cpp_compiler = 'clang++'
-let g:syntastic_cpp_compiler_options = ' -std=c++14 -stdlib=libc++ -Wall'
+if has('macunix')
+  " Settings for syntastic c++ support
+  let g:syntastic_cpp_compiler = 'clang++'
+  let g:syntastic_cpp_compiler_options = ' -std=c++14 -stdlib=libc++ -Wall'
 
-" Settings for C++ clang_complete
-let g:clang_library_path = '/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'
+  " Settings for C++ clang_complete
+  let g:clang_library_path = '/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'
+endif
 
 " color settings
 set termguicolors
