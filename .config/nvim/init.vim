@@ -15,6 +15,7 @@ call plug#begin()
   Plug 'rhysd/vim-clang-format'
   Plug 'Rip-Rip/clang_complete'
   Plug 'scrooloose/nerdtree'
+  Plug 'solarnz/thrift.vim'
   Plug 'tomtom/tcomment_vim'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-syntastic/syntastic'
