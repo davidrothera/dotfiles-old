@@ -51,3 +51,9 @@ nnoremap tl :tablast<CR>
 
 " Other settings
 filetype plugin on
+set number
+
+" Change TARGETS to be a Python file
+augroup filetypedetect
+    au BufRead,BufNewFile TARGETS set filetype=python
+augroup END
