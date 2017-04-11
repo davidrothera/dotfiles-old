@@ -9,6 +9,7 @@ call plug#begin()
   Plug 'junegunn/fzf.vim'
   Plug 'keith/swift.vim'
   Plug 'majutsushi/tagbar'
+  Plug 'mhartington/oceanic-next'
   Plug 'morhetz/gruvbox'
   Plug 'nvie/vim-flake8'
   Plug 'Raimondi/delimitMate'
@@ -33,8 +34,10 @@ endif
 
 " color settings
 set termguicolors
-set background=dark
-colorscheme gruvbox
+" set background=dark
+" colorscheme gruvbox
+colorscheme OceanicNext
+let g:airline_theme='oceanicnext'
 
 set tabstop=4
 set shiftwidth=4
