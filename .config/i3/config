@@ -37,7 +37,7 @@ bindsym XF86MonBrightnessUp exec --no-startup-id light -A 10
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 10
 
 # Lock the screen
-bindsym $mod+$esc exec ~/lock.sh
+bindsym $mod+$esc exec ~/.config/i3/scripts/lock.sh
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
@@ -157,7 +157,7 @@ bindsym $mod+r mode "resize"
 
 # Start polybar as our bar of choice
 bar {
-    i3bar_command $HOME/launch_polybar.sh
+    i3bar_command ~/.config/i3/scripts/launch_polybar.sh
 }
 
 # Specify that we want 10px inner/outer gaps
