@@ -10,7 +10,8 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 # Modifiers
-set $mod Mod4
+#set $mod Mod4
+set $mod Mod1
 set $esc 0xff1b
 
 # Startup programs
@@ -21,6 +22,10 @@ exec ./.screenlayout/main.sh
 
 # Disable window borders
 for_window [class="^.*"] border pixel 1
+
+# Make certain applications always floating
+for_window [class="Pavucontrol"] floating enable, border normal
+for_window [class="Blueman-manager"] floating enable, border normal
 
 # Font for window titles. Will also be used by the bar unless a different font
 font pango:"Source Code Pro" 10
@@ -43,7 +48,7 @@ bindsym $mod+$esc exec ~/.config/i3/scripts/lock.sh
 bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+c kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec rofi -show run
@@ -82,9 +87,9 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+# bindsym $mod+s layout stacking
+# bindsym $mod+w layout tabbed
+# bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -168,3 +173,9 @@ bar {
 gaps inner 10
 gaps outer 10
 
+# Scratchpad
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+# Bind super+s to toggle spotify to/from scratchpad
+bindsym $mod+s [class="Spotify.*"] scratchpad show
+bindsym $mod+Shift+m move workspace to output left
