@@ -18,6 +18,8 @@ set $esc 0xff1b
 exec --no-startup-id compton
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id nm-applet
+exec --no-startup-id parcellite
+exec --no-startup-id dunst
 exec ./.screenlayout/main.sh
 
 # Disable window borders
@@ -178,4 +180,5 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 # Bind super+s to toggle spotify to/from scratchpad
 bindsym $mod+s [class="Spotify.*"] scratchpad show
+bindsym $mod+t [class="Terminator"] scratchpad show
 bindsym $mod+Shift+m move workspace to output left
