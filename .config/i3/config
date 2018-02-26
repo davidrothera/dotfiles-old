@@ -15,12 +15,12 @@ set $mod Mod1
 set $esc 0xff1b
 
 # Startup programs
-exec --no-startup-id compton
+exec-always --no-startup-id compton
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id nm-applet
 exec --no-startup-id parcellite
 exec --no-startup-id dunst
-exec ./.screenlayout/main.sh
+exec ./.screenlayout/mpk.sh
 
 # Disable window borders
 for_window [class="^.*"] border pixel 1
@@ -109,6 +109,13 @@ bindsym $mod+a focus parent
 set $ws1 "1:gen"
 set $ws5 "5:spotify"
 
+# switch back to last space if you hit the ws selector twice
+workspace_auto_back_and_forth yes
+
+# switch spaces with arrows
+bindsym ctrl+Right workspace next
+bindsym ctrl+Left workspace prev
+
 # switch to workspace
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
@@ -182,3 +189,26 @@ bindsym $mod+minus scratchpad show
 bindsym $mod+s [class="Spotify.*"] scratchpad show
 bindsym $mod+t [class="Terminator"] scratchpad show
 bindsym $mod+Shift+m move workspace to output left
+
+set $displayMode "Set display mode [w]ork [l]aptop [m]pk"
+bindsym $mod+x mode $displayMode
+mode $displayMode {
+    bindsym w exec "\
+                ~/.screenlayout/main.sh && \
+                nitrgen --restore && \
+                i3-msg restart"; \
+                mode "default"
+    bindsym l exec "\
+                ~/.screenlayout/laptop.sh && \
+                nitrogen --restore && \
+                i3-msg restart"; \
+                mode "default"
+    bindsym m exec "\
+                ~/.screenlayout/mpk.sh && \
+                nitrogen --restore && \
+                i3-msg restart"; \
+                mode "default"
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
