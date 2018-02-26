@@ -13,10 +13,14 @@ convert "$tmpbg" -scale 5% -scale 2000% "$tmpbg"
 # positioned
 displays=$(xrandr | awk '$2 == "connected" {print $1}' | wc -l)
 if (( $displays > 1 )); then
-    convert "$tmpbg" "$icon" -gravity center -geometry +1280+0 -composite \
+    convert "$tmpbg" "$icon" -gravity center -geometry +950-200 -composite \
         -matte -colorize 25% "$tmpbg"
 else
     convert "$tmpbg" "$icon" -gravity center -composite -matte "$tmpbg"
 fi
 
+pkill -u "$USER" -USR1 dunst
+
 i3lock -i "$tmpbg"
+
+pkill -u "$USER" -USR2 dunst
