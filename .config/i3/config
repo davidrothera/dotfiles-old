@@ -15,11 +15,12 @@ set $mod Mod1
 set $esc 0xff1b
 
 # Startup programs
-exec-always --no-startup-id compton
+exec --no-startup-id compton
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id nm-applet
 exec --no-startup-id parcellite
 exec --no-startup-id dunst
+exec --no-startup-id xautolock -time 5 -locker ~/.config/i3/scripts/lock.sh
 exec ./.screenlayout/mpk.sh
 
 # Disable window borders
@@ -40,11 +41,15 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute 0 toggle
-bindsym XF86MonBrightnessUp exec --no-startup-id light -A 10
-bindsym XF86MonBrightnessDown exec --no-startup-id light -U 10
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
 
 # Lock the screen
-bindsym $mod+$esc exec ~/.config/i3/scripts/lock.sh
+bindsym $mod+$esc exec xautolock -locknow
+
+# Move window to next monitor
+bindsym $mod+mod4+Right move workspace to output right
+bindsym $mod+mod4+Left move workspace to output left
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
@@ -113,8 +118,8 @@ set $ws5 "5:spotify"
 workspace_auto_back_and_forth yes
 
 # switch spaces with arrows
-bindsym ctrl+Right workspace next
-bindsym ctrl+Left workspace prev
+bindsym mod4+Right workspace next
+bindsym mod4+Left workspace prev
 
 # switch to workspace
 bindsym $mod+1 workspace 1

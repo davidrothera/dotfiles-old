@@ -52,7 +52,7 @@ font-5 = "Font Awesome 5 Brands:pixelsize=8;1"
 
 modules-left = bspwm i3
 modules-center = xwindow
-modules-right = filesystem xbacklight volume memory cpu wlan eth battery-combined-udev temperature date powermenu
+modules-right = netspeed filesystem xbacklight volume memory cpu wlan eth battery-combined-udev temperature date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -192,16 +192,23 @@ format-prefix-foreground = ${colors.foreground}
 format-underline = #4bffdc
 label = %percentage_used%%
 
+[module/netspeed]
+type = internal/network
+interface = wlp4s0
+interval = 3.0
+
+label-connected =  %upspeed:9%   %downspeed:9%
+
 [module/wlan]
 type = internal/network
-interface = wlp58s0
+interface = wlp4s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
 format-connected-underline = #9f78e1
 label-connected = %essid%
 
-format-disconnected =
+format-disconnected = 
 ;format-disconnected = <label-disconnected>
 ;format-disconnected-underline = ${self.format-connected-underline}
 ;label-disconnected = %ifname% disconnected
