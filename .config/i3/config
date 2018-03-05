@@ -20,7 +20,7 @@ exec --no-startup-id nitrogen --restore
 exec --no-startup-id nm-applet
 exec --no-startup-id parcellite
 exec --no-startup-id dunst
-exec --no-startup-id xautolock -time 5 -locker ~/.config/i3/scripts/lock.sh
+exec --no-startup-id xautolock -time 5 -locker ~/.config/i3/scripts/lock.sh -detectsleep -corners --00
 exec ./.screenlayout/mpk.sh
 
 # Disable window borders
