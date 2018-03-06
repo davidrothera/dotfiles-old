@@ -10,7 +10,7 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 # Modifiers
-#set $mod Mod4
+# set $mod Mod4
 set $mod Mod1
 set $esc 0xff1b
 
@@ -21,7 +21,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id parcellite
 exec --no-startup-id dunst
 exec --no-startup-id xautolock -time 5 -locker ~/.config/i3/scripts/lock.sh -detectsleep -corners --00
-exec ./.screenlayout/mpk.sh
+exec ./.screenlayout/main.sh
 
 # Disable window borders
 for_window [class="^.*"] border pixel 1
@@ -43,6 +43,9 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute 0 toggle
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
+bindsym XF86AudioPlay exec --no-startup-id ~/.bin/mediaremote.sh PlayPause
+bindsym XF86AudioNext exec --no-startup-id ~/.bin/mediaremote.sh Next
+bindsym XF86AudioPrev exec --no-startup-id ~/.bin/mediaremote.sh Previous
 
 # Lock the screen
 bindsym $mod+$esc exec xautolock -locknow

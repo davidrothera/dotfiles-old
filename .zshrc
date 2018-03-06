@@ -21,6 +21,6 @@ alias vim='nvim'
 alias vimdiff='nvim -d'
 
 # Path stuff
-export PATH=~/.dotfiles/bin:~/bin:$PATH
+export PATH=~/.dotfiles/bin:~/bin:~/.bin:$PATH
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
